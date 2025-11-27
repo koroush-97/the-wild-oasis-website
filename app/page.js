@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <div>
       <h1> the wild oasis elcome to pradias </h1>
-      <Link href="/cabins"> Explore luxury cabins </Link>
+      {/* <Link href="/cabins"> Explore luxury cabins </Link> */}
     </div>
   );
 }
