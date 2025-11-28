@@ -7,6 +7,8 @@ export const metadata = {
   title: {
     default: "Welcome / The Wild Oasis",
   },
+  description:
+    "Luxurious cabin hotel located in the heart of the Italian Folomites, surrounded by beautiful mountains and dark forests",
 };
 
 export default function RootLayout({ children }) {
