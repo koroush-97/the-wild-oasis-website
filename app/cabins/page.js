@@ -1,11 +1,12 @@
+import { Suspense } from "react";
 import CabinList from "../_components/CabinList";
-import { getCabins } from "../_lib/data-service";
+import Spinner from "../_components/Spinner";
 
 export const metadata = {
   title: "Cabins",
 };
 
-export default async function Page() {
+export default function Page() {
   // CHANGE
 
   return (
@@ -21,8 +22,9 @@ export default async function Page() {
         home away from home. The perfect spot for a peaceful, calm vacation.
         Welcome to paradise.
       </p>
-
-      {cabins.length > 0 && <CabinList />}
+      <Suspense fallback={<Spinner />}>
+        <CabinList />
+      </Suspense>
     </div>
   );
 }
