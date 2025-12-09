@@ -9,3 +9,8 @@ const authCongfig = {
     }),
   ],
 };
+
+export const {
+  auth,
+  handlers: { GET, POST },
+} = NextAuth(authCongfig);
