@@ -2,6 +2,7 @@ import DateSelector from "@/app/_components/DateSelector";
 import ReservationForm from "./ReservationForm";
 import { getBookedDatesByCabinId, getSettings } from "../_lib/data-service";
 import LoginMessage from "./LoginMessage";
+import { auth } from "../_lib/auth";
 
 async function Reservation({ cabin }) {
   const [settings, bookedDates] = await Promise.all([
@@ -17,7 +18,11 @@ async function Reservation({ cabin }) {
         bookedDates={bookedDates}
         cabin={cabin}
       />
-      {session?.user ? <ReservationForm cabin={cabin} /> : <LoginMessage />}
+      {session?.user ? (
+        <ReservationForm cabin={cabin} user={session.user} />
+      ) : (
+        <LoginMessage />
+      )}
     </div>
   );
 }
