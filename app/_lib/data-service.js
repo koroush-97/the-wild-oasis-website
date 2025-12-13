@@ -187,6 +187,7 @@ export async function createBooking(newBooking) {
 
 /////////////
 // UPDATE
+/*
 
 // The updatedFields is an object which should ONLY contain the updated data
 export async function updateGuest(id, updatedFields) {
@@ -230,4 +231,4 @@ export async function deleteBooking(id) {
     throw new Error("Booking could not be deleted");
   }
   return data;
-}
+} */
