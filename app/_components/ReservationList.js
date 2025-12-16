@@ -5,15 +5,19 @@ import ReservationCard from "./ReservationCard";
 import { deleteReservation } from "../_lib/actions";
 
 export default function ReservationList({ bookings }) {
+  // const [optimisticBookings, optimisticDelete] = useOptimistic(
+  //   bookings,
+  //   (curBookings, bookingId) => {
+  //     return curBookings.filter((booking) => booking.id !== bookingId);
+  //   }
   const [optimisticBookings, optimisticDelete] = useOptimistic(
     bookings,
-    (curBookings, bookingId) => {
-      return curBookings.filter((booking) => booking.id !== bookingId);
-    }
+    (curBookings, bookingId) =>
+      curBookings.filter((booking) => booking.id !== bookingId)
   );
 
   async function handleDelete(bookingId) {
-    optimisticBookings(bookingId);
+    optimisticDelete(bookingId); // ✅ این درسته
     await deleteReservation(bookingId);
   }
 
