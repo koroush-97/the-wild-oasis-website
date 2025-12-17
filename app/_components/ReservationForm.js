@@ -1,12 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import { useReservation } from "./ReservationContext";
 
 function ReservationForm({ cabin, user }) {
   // CHANGE
   const { range } = useReservation();
-  // const maxCapacity = cabin;
+  const { maxCapacity, regularPrice, discount } = cabin;
+
+  const startDate = range?.from;
+  const endDate = range?.to;
 
   return (
     <div className="scale-[1.01]">
@@ -15,7 +17,7 @@ function ReservationForm({ cabin, user }) {
 
         <div className="flex gap-4 items-center">
           {/* use Image component and replace img */}
-          <Image
+          <img
             // Important to display google profile images
             referrerPolicy="no-referrer"
             className="h-8 rounded-full"
