@@ -1,5 +1,6 @@
 "use client";
 
+import { differenceInDays } from "date-fns";
 import { useReservation } from "./ReservationContext";
 
 function ReservationForm({ cabin, user }) {
@@ -9,6 +10,9 @@ function ReservationForm({ cabin, user }) {
 
   const startDate = range?.from;
   const endDate = range?.to;
+
+  const numNights = differenceInDays(endDate, startDate);
+  const cabinPrice = numNights * (regularPrice - discount);
 
   return (
     <div className="scale-[1.01]">
